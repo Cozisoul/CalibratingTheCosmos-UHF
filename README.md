@@ -51,10 +51,9 @@ This project was executed on an Apple M1 Max Mac Studio. The workflow was develo
     *   Download the uncalibrated MeerKAT dataset (`1740033067-sdp-l0_...`). Place the `.ms` directory inside the `/data` folder.
 
 4.  **Execution:**
-    *   Update the `vis_file` path in `scripts/calibrate_meerkat.py`.
-    *   Run the main pipeline from your terminal:
+    *   Run the main pipeline from your terminal, providing the path to your MeasurementSet:
         ```bash
-        /Applications/CASA.app/Contents/MacOS/casa --pipeline -c scripts/calibrate_meerkat.py
+        /Applications/CASA.app/Contents/MacOS/casa --pipeline -c "import sys; sys.argv = ['<script_name>', 'data/your_measurement_set.ms']; execfile('scripts/calibrate_meerkat.py')"
         ```
     *   To generate the bandpass plot, launch CASA interactively (`/Applications/CASA.app/Contents/MacOS/casa`) and run:
         ```python
